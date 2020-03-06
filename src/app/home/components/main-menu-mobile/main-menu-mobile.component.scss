@@ -1,0 +1,8 @@
+@import '../../../global-styles/variables.scss';
+
+.r-main-menu-mobile {
+    &__swipe-bar {
+        height: 7px;
+        background-color: $accent;
+    }
+}

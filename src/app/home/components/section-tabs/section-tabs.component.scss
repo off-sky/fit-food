@@ -1,0 +1,27 @@
+@import '../../../global-styles/variables.scss';
+
+.r-section-tabs {
+    display: flex;
+    width: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    &__item {
+        width: 33%;
+        height: 78px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        &.active {
+            background-color: $grey;
+        }
+        &.first {
+            padding-left: $padding-side-mobile;
+            justify-content: flex-start;
+        }
+        &.last {
+            padding-right: $padding-side-mobile;
+            justify-content: flex-end;
+        }
+    }
+}
