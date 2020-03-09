@@ -1,0 +1,12 @@
+@import '../../../global-styles/index';
+
+.r-filter-item {
+    height: 63px;
+    background-color: $accent;
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    white-space: nowrap;
+
+    color: white;
+}

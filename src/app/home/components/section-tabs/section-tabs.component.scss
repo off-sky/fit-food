@@ -17,11 +17,9 @@
         }
         &.first {
             padding-left: $padding-side-mobile;
-            justify-content: flex-start;
         }
         &.last {
             padding-right: $padding-side-mobile;
-            justify-content: flex-end;
         }
     }
 }

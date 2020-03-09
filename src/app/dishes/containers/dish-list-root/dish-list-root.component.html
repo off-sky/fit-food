@@ -1,1 +1,19 @@
-<p>dish-list-root works!</p>
+
+<r-section>
+    <r-section-content>
+        <div class="r-dish-list-root__search-input">
+            <r-search-input></r-search-input>
+        </div>
+        <div class="r-dish-list-root__list">
+            <div *ngFor="let item of [0, 1, 2, 3, 4, 5, 6]" class="r-dish-list-root__list-item">
+                <r-dish-card></r-dish-card>
+            </div>
+        </div>
+    </r-section-content>
+    <r-section-bottom>
+        <r-filter-bar>
+            <r-filter-item *ngFor="let filter of [0, 1, 2, 3, 4, 5]">
+            </r-filter-item>
+        </r-filter-bar>
+    </r-section-bottom>
+</r-section>

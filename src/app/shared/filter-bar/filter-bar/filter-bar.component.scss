@@ -1,0 +1,10 @@
+.r-filter-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    overflow-x: auto;
+
+    & ::ng-deep r-filter-item {
+        width: 100%;
+    }
+}

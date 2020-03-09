@@ -1,0 +1,22 @@
+@import '../../../../global-styles/index';
+
+.r-section-wrap {
+    padding: $padding-top-mobile $padding-side-mobile;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.r-section-content {
+    height: 100%;
+    overflow-y: auto;
+}
+
+.r-section-bottom {
+    z-index: 5;
+    margin: (-$padding-top-mobile) (-$padding-side-mobile);
+}

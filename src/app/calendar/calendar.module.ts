@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CalendarRootComponent } from './containers/calendar-root/calendar-root.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [CalendarRootComponent],
   imports: [
     CommonModule
   ]

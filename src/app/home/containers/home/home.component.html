@@ -1,3 +1,7 @@
-<r-main-menu [isMobile]="isMobile$ | async"></r-main-menu>
-<r-section-tabs></r-section-tabs>
-<router-outlet></router-outlet>
+<div class="r-home-wrap">
+    <r-main-menu [isMobile]="isMobile$ | async"></r-main-menu>
+    <r-section-tabs></r-section-tabs>
+    <div class="r-home__section-wrap">
+        <router-outlet></router-outlet>
+    </div>
+</div>
