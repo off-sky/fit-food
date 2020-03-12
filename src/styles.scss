@@ -9,3 +9,14 @@ body {
 div {
     outline: none;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}

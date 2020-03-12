@@ -1,4 +1,11 @@
-<input
-    id="searchInput"
-    placeholder="Search dishes"
->
+<div class="r-search-input" (click)="inputField.focus()">
+    <div class="r-search-input__icon">
+    </div>
+    <input
+        id="searchInput"
+        class="r-search-input__field"
+        placeholder="Search dishes"
+        #inputField
+    >
+</div>
+

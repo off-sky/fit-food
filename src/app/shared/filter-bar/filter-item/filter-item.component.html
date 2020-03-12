@@ -1,4 +1,7 @@
-<div class="r-filter-item">
+<div class="r-filter-item"
+     [ngClass]="{ 'active' : selected$ | async}"
+     (click)="onClick()"
+     >
     Filter Label
     <ng-content></ng-content>
 </div>

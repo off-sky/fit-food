@@ -1,8 +1,10 @@
 
 <r-section>
     <r-section-content>
-        <div class="r-dish-list-root__search-input">
-            <r-search-input></r-search-input>
+        <div class="r-dish-list-root__search-input-wrap">
+            <div class="r-dish-list-root__search-input">
+                <r-search-input></r-search-input>
+            </div>
         </div>
         <div class="r-dish-list-root__list">
             <div *ngFor="let item of [0, 1, 2, 3, 4, 5, 6]" class="r-dish-list-root__list-item">
@@ -12,7 +14,9 @@
     </r-section-content>
     <r-section-bottom>
         <r-filter-bar>
-            <r-filter-item *ngFor="let filter of [0, 1, 2, 3, 4, 5]">
+            <r-filter-item *ngFor="let filter of [0, 1, 2, 3, 4, 5]"
+                        [value]="filter"
+                >
             </r-filter-item>
         </r-filter-bar>
     </r-section-bottom>

@@ -1,0 +1,18 @@
+.r-search-input {
+    border: 1px solid #BFBFBF;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    border-radius: 18px;
+    padding: 0px 18px;
+    &__icon {
+        width: 20px;
+        height: 18px;
+        background: url('/assets/search-glass.svg') center center/17px 17px no-repeat;
+        margin-right: 20px;
+    }
+    &__field {
+        width: 100%;
+        font-size: 16px;
+    }
+}

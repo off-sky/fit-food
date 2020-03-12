@@ -1,0 +1,9 @@
+<div class="y-widget-menu-trigger"
+    [ngClass]="{
+        'open': _isOpen | async
+    }"
+    (click)="toggle()">
+    <ng-content >
+    </ng-content>
+</div>
+

@@ -9,4 +9,10 @@
     white-space: nowrap;
 
     color: white;
+    cursor: pointer;
+
+    &.active {
+        background-color: white;
+        color: $accent;
+    }
 }

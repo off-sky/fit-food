@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FilterBarService } from '../filter-bar.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'r-filter-item',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterItemComponent implements OnInit {
 
-  constructor() { }
+  @Input() public value: string;
+  public selected$: Observable<boolean>;
+
+  constructor(
+    private filterBarService: FilterBarService
+  ) { }
 
   ngOnInit(): void {
+    this.selected$ = this.filterBarService.selected$()
+      .pipe(
+        map(selectedId => selectedId === this.value)
+      )
+  }
+
+  public onClick(): void {
+    this.filterBarService.select(this.value);
   }
 
 }
