@@ -1,4 +1,4 @@
-@import '../../../ui/global-styles/variables.scss';
+
 
 .y-widget-menu {
     position: fixed;
@@ -21,7 +21,6 @@
         bottom: 0;
         width: 0;
         overflow: hidden;
-        padding-top: $header-height;
         transition: width 0.3s ease-in-out;
         &.open {
             width: 85vw;

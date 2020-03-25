@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FilterBarService } from '../filter-bar.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 @Component({
   selector: 'r-filter-item',
@@ -25,7 +25,18 @@ export class FilterItemComponent implements OnInit {
   }
 
   public onClick(): void {
-    this.filterBarService.select(this.value);
+    this.selected$
+      .pipe(
+        take(1)
+      )
+      .subscribe(isAlreadySelected => {
+        if (isAlreadySelected) {
+          this.filterBarService.select(null);
+        } else {
+          this.filterBarService.select(this.value);
+        }
+      })
+    
   }
 
 }

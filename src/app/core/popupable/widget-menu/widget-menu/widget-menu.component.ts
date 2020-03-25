@@ -1,34 +1,41 @@
-import { Component, OnInit, ContentChildren, QueryList, AfterContentInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ElementRef, Renderer2, ChangeDetectorRef, TemplateRef } from '@angular/core';
-import { WidgetMenuItemComponent } from '../widget-menu-item/widget-menu-item.component';
-import { startWith, switchMap, filter, map, tap, flatMap, shareReplay, take } from 'rxjs/operators';
-import { merge, Observable, combineLatest } from 'rxjs';
-import { WidgetMenuContentsComponent } from '../widget-menu-contents/widget-menu-contents.component';
-import { ScreenSizeType, ScreenSizes } from 'src/app/core/screen-size/interfaces';
-import { ScreenSizeService } from 'src/app/core/screen-size/screen-size.service';
+import { Component, OnInit, AfterContentInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ElementRef, Renderer2, ChangeDetectorRef, TemplateRef, ReflectiveInjector, ComponentFactory } from '@angular/core';
+import { switchMap, filter, map, take } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { PopupRef } from '../../types/popup-ref';
+import { AbstractPopupComponent } from '../../types/abstract-popup-component';
+
+interface ComponentItem {
+  name: any;
+  data: any;
+}
 
 
 @Component({
-  selector: 'y-widget-menu',
+  selector: 'r-widget-menu',
   templateUrl: './widget-menu.component.html',
   styleUrls: ['./widget-menu.component.scss']
 })
 export class WidgetMenuComponent implements AfterContentInit, OnInit {
 
-  public template: Observable<TemplateRef<any>>;
+  public open<C extends AbstractPopupComponent<D, R>, D, R>(
+    component: C, data: D): Observable<R> {
+      this.componentSubj.next({ name: component, data });
+
+      return this.closedPopup.asObservable()
+        .pipe( take(1) )
+  }
+
+  private componentSubj: Subject<ComponentItem> = new Subject<ComponentItem>();
+  private closedPopup: Subject<any> = new Subject<any>();
+
   public isOpen$: Observable<boolean>;
-  public screenSize$: Observable<ScreenSizeType>;
-  public ScreenSizes = ScreenSizes;
 
-  private items: Observable<QueryList<WidgetMenuItemComponent>>;
-
-  @ContentChildren(WidgetMenuItemComponent) private menuItems: QueryList<WidgetMenuItemComponent>;
-  @ViewChild('container') private containerRef: ElementRef;
+  @ViewChild('container', { read: ViewContainerRef }) private containerRef: ViewContainerRef;
 
 
   constructor(
     private cd: ChangeDetectorRef,
-    private renderer: Renderer2,
-    private screenSizeService: ScreenSizeService
+    private resolver: ComponentFactoryResolver
   ) { }
 
   ngOnInit() {
@@ -36,79 +43,52 @@ export class WidgetMenuComponent implements AfterContentInit, OnInit {
 
   ngAfterContentInit() {
 
-    this.screenSize$ = this.screenSizeService.screenSize$();
+    this.componentSubj.asObservable()
+      .pipe(
+        filter(cmp => !!cmp),
+        switchMap(cmp => this.onComponentNameChanged(cmp)),
+        map((resultData) => {
+          this.closedPopup.next(resultData);
+          this.componentSubj.next();
+        })
+      )
+      .subscribe();
 
-    // close other menu items, if one becomes opened
-    this.items =  this.menuItems.changes
+    this.isOpen$ = this.componentSubj.asObservable()
           .pipe(
-            startWith(this.menuItems),
-            shareReplay(1)
+            map(cmp => !!cmp)
           );
 
+    this.closedPopup.asObservable()
+            .subscribe(() => {
+              this.containerRef.clear();
+            })
     
-    this.items
-      .pipe(
-          switchMap((items: QueryList<WidgetMenuItemComponent>) => {
-            const obss = items.map((item, index) => {
-              return item.openedChanged()
-                .pipe(
-                  filter(isOpen => isOpen),
-                  map(() => index)
-                );
-            });
-            return merge(obss);
-          }),
-          flatMap(source => source)
-        )
-        .subscribe(openInd => {
-          this.closeAllItemsExceptInd(openInd);
-        });
-
-    this.template = this.items
-        .pipe(
-          switchMap((items: QueryList<WidgetMenuItemComponent>) => {
-            const obss = items.map((item, index) => {
-              return item.showMyContents()
-            });
-            return merge(obss);
-          }),
-          flatMap(source => source),
-        )
-
-    this.isOpen$ = this.items
-        .pipe(
-          switchMap((items: QueryList<WidgetMenuItemComponent>) => {
-            const obss = items.map((item, index) => {
-              return item.openedChanged()
-            });
-            return combineLatest(obss);
-          }),
-          map(openArr => {
-            return openArr.some(open => open);
-          })
-        )
     
+  }
+
+  private onComponentNameChanged(component: ComponentItem): Observable<any> {
+      const popupRef = new PopupRef();
+      popupRef.data = component.data;
+      let inputs = { popupRef };
+      let inputProviders = Object.keys(inputs)
+        .map((inputName) => { return { provide: inputName, useValue: inputs[inputName] }; });
+      let resolvedInputs = ReflectiveInjector.resolve(inputProviders);
+      let injector: ReflectiveInjector = ReflectiveInjector.fromResolvedProviders(resolvedInputs, this.containerRef.parentInjector);
+      let factory = this.resolver.resolveComponentFactory(component.name as any);
+      let cmp = factory.create(injector);
+      cmp.instance['popupRef'] = popupRef;
+      this.containerRef.insert(cmp.hostView);
+      this.cd.detectChanges();
+      return popupRef.closed();
   }
 
 
   public closeAll(): void {
-    this.items
-      .pipe(
-        take(1)
-      )
-      .subscribe(items => {
-        items.forEach(i => i.close())
-      })
+    this.closedPopup.next();
+    this.componentSubj.next();
   }
 
-
-  private closeAllItemsExceptInd(ind: number) {
-    this.menuItems.forEach((item, index) => {
-      if (index !== ind) {
-        item.close();
-      }
-    })
-  }
 
 
 

@@ -6,11 +6,10 @@
 
  <div class="y-widget-menu__contents"
       [ngClass]="{
-          'open': isOpen$ | async,
-          'mobile': (screenSize$ | async) === ScreenSizes.MOBILE
+          'open': isOpen$ | async
       }"
     >
-    <ng-container *ngIf="template" [ngTemplateOutlet]="template | async"></ng-container>
+    <ng-container #container></ng-container>
 </div>
 
 <div *ngIf="isOpen$ | async"
