@@ -1,0 +1,11 @@
+<div class="r-button"
+    [ngStyle]="{
+        'width': width
+    }"
+    [ngClass]="{
+        'disabled': disabled,
+        'active': !disabled
+    }"
+    >
+    <ng-content></ng-content>
+</div>

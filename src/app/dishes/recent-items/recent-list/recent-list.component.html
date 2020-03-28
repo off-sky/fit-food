@@ -1,0 +1,20 @@
+<div class="r-recent-list"
+     [ngClass]="{
+         'open': isShown$ | async,
+         'collapsed': isCollapsed$ | async
+     }"
+    >
+    <div class="r-recent-list__collapse-btn"
+         (click)="onToggleCollapsed()"
+        >
+        <r-arrow class="r-recent-list__collapse-btn__arrow"></r-arrow>
+    </div>
+    <div class="r-recent-list__items">
+        <div *ngFor="let item of items$ | async" class="r-recent-list__item">
+            <r-recent-item (closed)="onRemove(item)"
+                           (click)="onClick(item)"
+                >
+            </r-recent-item>
+        </div>
+    </div>
+</div>

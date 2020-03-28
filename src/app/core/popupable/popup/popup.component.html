@@ -1,1 +1,23 @@
-<p>popup works!</p>
+<div
+  class="r-popup__contents"
+  [ngClass]="{
+    open: isOpen$ | async
+  }"
+  (click)="closeAll()"
+>
+  <div class="r-popup__contents__box"
+    [ngClass]="{
+        open: isOpen$ | async
+    }"
+    (click)="$event.stopPropagation()"
+  >
+    <ng-container #container></ng-container>
+  </div>
+ 
+</div>
+
+<div
+  *ngIf="isOpen$ | async"
+  class="r-popup__page-mask"
+  (click)="closeAll()"
+></div>

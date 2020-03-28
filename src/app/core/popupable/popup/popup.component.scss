@@ -1,0 +1,51 @@
+
+.r-popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 50;
+    height: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+
+    &__contents {
+        position: fixed;
+        background-color: transparent;
+        z-index: 9;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // transition: width 0.3s ease-in-out;
+        &.open {
+            width: 100vw;
+        }
+        &__box {
+            max-width: 80vw;
+            background-color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            &.open {
+                opacity: 1;
+                -webkit-box-shadow: -5px 0px 6px -1px rgba(0,0,0,0.56);
+                -moz-box-shadow: -5px 0px 6px -1px rgba(0,0,0,0.56);
+                box-shadow: -5px 0px 6px -1px rgba(0,0,0,0.56);
+            }
+        }
+    }
+
+    &__page-mask {
+        position: fixed;
+        top: 0;
+        left:0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.308);
+    }
+}

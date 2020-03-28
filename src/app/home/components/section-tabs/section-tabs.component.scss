@@ -15,11 +15,5 @@
         &.active {
             background-color: $grey;
         }
-        &.first {
-            padding-left: $padding-side-mobile;
-        }
-        &.last {
-            padding-right: $padding-side-mobile;
-        }
     }
 }

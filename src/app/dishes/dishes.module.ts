@@ -4,6 +4,7 @@ import { DishListRootComponent } from './containers/dish-list-root/dish-list-roo
 import { DishCardComponent } from './components/dish-card/dish-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { DishDetailsComponent } from './components/dish-details/dish-details.component';
+import { RecentItemsModule } from './recent-items/recent-items.module';
 
 
 
@@ -18,6 +19,7 @@ import { DishDetailsComponent } from './components/dish-details/dish-details.com
   ],
   imports: [
     CommonModule,
+    RecentItemsModule,
     SharedModule
   ]
 })

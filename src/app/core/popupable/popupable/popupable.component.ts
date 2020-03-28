@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { ScreenSizes, ScreenSizeType } from '../../screen-size/interfaces';
 import { AbstractPopupable } from '../types/abstract-popupable';
 import { PopupableService } from '../popupable.service';
-import { take, startWith, map, withLatestFrom, filter, switchMap } from 'rxjs/operators';
+import { take, startWith, map, withLatestFrom, filter, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'r-popupable',
@@ -34,25 +34,27 @@ export class PopupableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.screenSize$ = this.screenSizeService.screenSize$();
   }
 
   ngAfterViewInit() {
+    setTimeout(() => {
+      this.screenSize$ = this.screenSizeService.screenSize$();
+    })
     const popup$: Observable<AbstractPopupable> = this.popupable.changes
-      .pipe(
-        map(ql => ql[0]),
-        startWith(this.popupable.first),
-        filter(popup => !!popup)
-      );
+    .pipe(
+      map(ql => ql.first),
+      startWith(this.popupable.first),
+      filter(popup => !!popup),
+    );
 
-    PopupableComponent.openedSubj.asObservable()
-        .pipe(
-          withLatestFrom(popup$),
-          switchMap(([popupState, popup]) => {
-            return popup.open(popupState.component, popupState.data)
-          })
-        )
-        .subscribe(result => PopupableComponent.closedSubj.next(result));
+  PopupableComponent.openedSubj.asObservable()
+      .pipe(
+        withLatestFrom(popup$),
+        switchMap(([popupState, popup]) => {
+          return popup.open(popupState.component, popupState.data)
+        })
+      )
+      .subscribe(result => PopupableComponent.closedSubj.next(result));
   }
 
 }

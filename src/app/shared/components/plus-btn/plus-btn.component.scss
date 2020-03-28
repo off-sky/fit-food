@@ -1,0 +1,17 @@
+@import '../../../global-styles/index';
+.r-plus-btn {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    &:hover {
+        .r-plus-svg {
+            fill: $accent-dark;
+        }
+    }
+}
+
+.r-plus-svg {
+    fill: $accent;
+}

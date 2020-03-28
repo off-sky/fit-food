@@ -1,1 +1,5 @@
-<r-widget-menu #popupable></r-widget-menu>
+<r-widget-menu #popupable *ngIf="(screenSize$ | async) === screenSizes.MOBILE; else desktop"></r-widget-menu>
+<ng-template #desktop>
+    <r-popup #popupable></r-popup>
+</ng-template>
+

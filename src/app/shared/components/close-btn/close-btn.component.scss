@@ -1,0 +1,12 @@
+@import '../../../global-styles/index';
+
+.r-close-btn {
+    cursor: pointer;
+}
+
+.r-close-svg {
+    fill: $accent;
+    &:hover {
+        fill: $accent-dark;
+    }
+}

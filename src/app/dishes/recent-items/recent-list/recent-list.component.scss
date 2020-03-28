@@ -1,0 +1,53 @@
+@import '../../../global-styles/index';
+.r-recent-list {
+    height: 0;
+    overflow: hidden;
+    padding: 10px $padding-side-mobile;
+    background-color: white;
+    position: relative;
+    opacity: 0;
+    width: 100vw;
+    transition: width 0.3s ease-in-out;
+    &__collapse-btn {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        width: 15px;
+        padding: 0 3px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: rotate 0.3s ease-in-out;
+        &__arrow {
+            transform: rotate(90deg);
+        }
+    }
+    &.open {
+        height: 80px;
+        opacity: 1;
+    }
+    &.collapsed {
+        position: fixed;
+        left: 0;
+        bottom: 63px;
+        width: 15px;
+        padding-left: 0;
+        padding-right: 0;
+        .r-recent-list__items {
+            width: 0;
+        }
+        .r-recent-list__collapse-btn__arrow {
+            transform: rotate(-90deg);
+        }
+    }
+    &__item {
+        margin-right: 20px;
+    }
+    &__items {
+        display: flex;
+        overflow-x: auto;
+        width: auto;
+    }
+}

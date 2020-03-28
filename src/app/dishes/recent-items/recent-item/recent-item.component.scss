@@ -1,0 +1,30 @@
+@import "../../../global-styles/index";
+
+.r-recent-item {
+  width: 120px;
+  height: 75px;
+  border: 1px solid $accent;
+  padding: 3px;
+  &__contents {
+      max-height: 60px;
+  }
+  &__top-bar {
+    display: flex;
+    align-items: center;
+    &__title {
+      font-size: 12px;
+      max-width: 105px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow-x: hidden;
+    }
+  }
+  &__photo {
+      display: flex;
+      justify-content: center;
+      img {
+          object-fit: cover;
+          max-height: 60px;
+      }
+  }
+}
