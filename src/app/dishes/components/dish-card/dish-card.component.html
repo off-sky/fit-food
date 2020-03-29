@@ -1,18 +1,22 @@
 <div (click)="onDishClick()" class="r-dish-card">
-    <div class="r-dish-card__left">
-        <div class="r-dish-card__title">
-            Fritata with Shputzini Sauce
-        </div>
-        <div class="r-dish-card__tags">
-            <div class="r-tag">
-                Breakfast
-            </div>
-        </div>
-        <div class="r-dish-card__description">
-            It's always nice when the best version of a recipe is also the easiest. After testing many almond....
-        </div>
+  <div class="r-dish-card__left">
+    <div class="r-dish-card__title">
+      Fritata with Shputzini Sauce <div class="r-dish-card__add-to-fav" (click)="$event.stopPropagation()">
+        <r-heart-btn (click)="onAddToFav()" [checked]="addedToFav">
+        </r-heart-btn>
+      </div>
     </div>
-    <div class="r-dish-card__right">
-        <img src="/assets/food.png"  class="r-dish-card__image" alt="Dish image">
+    <div class="r-dish-card__tags">
+      <div class="r-tag">
+        Breakfast
+      </div>
     </div>
+    <div class="r-dish-card__description">
+      It's always nice when the best version of a recipe is also the easiest.
+      After testing many almond....
+    </div>
+  </div>
+  <div class="r-dish-card__right">
+    <img src="/assets/food.png" class="r-dish-card__image" alt="Dish image" />
+  </div>
 </div>

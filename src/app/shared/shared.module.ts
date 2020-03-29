@@ -11,11 +11,13 @@ import { PlusBtnComponent } from './components/plus-btn/plus-btn.component';
 import { CloseBtnComponent } from './components/close-btn/close-btn.component';
 import { ArrowComponent } from './components/arrow/arrow.component';
 import { ButtonComponent } from './components/button/button.component';
+import { HeartBtnComponent } from './components/heart-btn/heart-btn.component';
 
 const sharedComponents = [
     ArrowComponent,
     ButtonComponent,
     CloseBtnComponent,
+    HeartBtnComponent,
     PlusBtnComponent,
     SearchInputComponent,
     SectionBottomComponent,

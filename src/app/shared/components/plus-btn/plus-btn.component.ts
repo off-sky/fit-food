@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PlusBtnComponent implements OnInit {
 
   @Input() public width: string = '18px';
+  @Input() public focused: boolean = false;
+  @Input() public disabled: boolean = false;
 
   constructor() { }
 

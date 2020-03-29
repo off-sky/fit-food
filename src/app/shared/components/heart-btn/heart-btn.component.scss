@@ -1,0 +1,9 @@
+.r-heart-btn {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    &__checked {
+        position: relative;
+        bottom: -1px;
+    }
+}

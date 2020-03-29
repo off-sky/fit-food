@@ -10,8 +10,19 @@
             fill: $accent-dark;
         }
     }
-}
-
-.r-plus-svg {
-    fill: $accent;
+    &.active {
+        .r-plus-svg {
+            fill: $accent;
+        }
+    }
+    &.disabled {
+        .r-plus-svg {
+            fill: $grey;
+        }
+    }
+    &.focused {
+        .r-plus-svg {
+            fill: $grey;
+        }
+    }
 }

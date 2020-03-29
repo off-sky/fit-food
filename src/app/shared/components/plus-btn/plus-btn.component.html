@@ -1,4 +1,6 @@
-<div class="r-plus-btn" [ngStyle]="{ width: width, height: width }">
+<div class="r-plus-btn" [ngStyle]="{ width: width, height: width }"
+  [ngClass]="{'focused': focused, 'disabled': disabled, 'active': !(disabled || focused) }"
+  >
   <svg
     [ngStyle]="{ width: width, height: width }"
     fill="none"

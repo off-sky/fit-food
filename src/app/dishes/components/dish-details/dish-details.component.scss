@@ -4,6 +4,10 @@
     max-width: 600px;
     overflow-y: auto;
     max-height: 90vh;
+    &__add-to-fav-btn {
+        display: inline-block;
+        width: 18px;
+    }
     &__cta {
         display: flex;
         justify-content: flex-end;
