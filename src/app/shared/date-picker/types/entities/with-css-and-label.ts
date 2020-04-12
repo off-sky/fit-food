@@ -1,0 +1,1 @@
+export type WithCSSAndLabel<T> = { css?: string; displayLabel?: string; } & T;

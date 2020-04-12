@@ -8,6 +8,9 @@
     opacity: 0;
     width: 100vw;
     transition: width 0.3s ease-in-out;
+    -webkit-box-shadow: 0px -4px 12px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -4px 12px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px -4px 12px -4px rgba(0,0,0,0.75);
     &__collapse-btn {
         position: absolute;
         left: 0;
@@ -32,7 +35,7 @@
         position: fixed;
         left: 0;
         bottom: 63px;
-        width: 15px;
+        width: 21px;
         padding-left: 0;
         padding-right: 0;
         .r-recent-list__items {

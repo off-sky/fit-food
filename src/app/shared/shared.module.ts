@@ -12,6 +12,7 @@ import { CloseBtnComponent } from './components/close-btn/close-btn.component';
 import { ArrowComponent } from './components/arrow/arrow.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HeartBtnComponent } from './components/heart-btn/heart-btn.component';
+import { DatePickerModule } from './date-picker/date-picker.module';
 
 const sharedComponents = [
     ArrowComponent,
@@ -34,10 +35,12 @@ const sharedComponents = [
   ],
   imports: [
     CommonModule,
+    DatePickerModule,
     FilterBarModule
   ],
   exports: [
     ...sharedComponents,
+    DatePickerModule,
     FilterBarModule
   ]
 })

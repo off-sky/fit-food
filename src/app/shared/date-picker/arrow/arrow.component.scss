@@ -1,0 +1,10 @@
+.r-arrow {
+    width: 13px;
+    height: 24px;
+    &.left {
+        
+    }
+    &.right {
+        transform: rotate(-180deg);
+    }
+}

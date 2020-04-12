@@ -1,0 +1,91 @@
+<div class="r-date-picker">
+  <div class="r-date-picker__top">
+    <div class="r-date-picker__selected-month-year">
+      <div
+        class="r-date-picker__selected-month"
+        [ngClass]="{
+          'selected-view': (currentView$ | async) === DatepickerView.MONTH
+        }"
+        (click)="setView(DatepickerView.MONTH)"
+      >
+        {{ (currentMonth$ | async).displayLabel }}
+      </div>
+      <div
+        class="r-date-picker__selected-year"
+        [ngClass]="{
+          'selected-view': (currentView$ | async) === DatepickerView.YEAR
+        }"
+        (click)="setView(DatepickerView.YEAR)"
+      >
+        {{ (currentYear$ | async).displayLabel }}
+      </div>
+      <div
+        *ngIf="(currentView$ | async) === DatepickerView.YEAR"
+        class="r-date-picker__selected-decade"
+      >
+        {{ decadeLabel$ | async }}
+      </div>
+    </div>
+    <div class="r-date-picker__arrows">
+      <div class="r-date-picker__arrow back" (click)="back()">
+        <r-arrow [orientation]="'left'"></r-arrow>
+      </div>
+      <div class="r-date-picker__arrow forward" (click)="forward()">
+        <r-arrow [orientation]="'right'"></r-arrow>
+      </div>
+    </div>
+  </div>
+  <!-- Day view -->
+  <div
+    *ngIf="(currentView$ | async) === DatepickerView.DAY"
+    class="r-date-picker__contents day"
+  >
+    <div class="r-date-picker__weekdays-wrap">
+      <div
+        *ngFor="let weekday of weekdays$ | async"
+        class="r-date-picker__weekday weekday {{weekday.css}}"
+      >
+        <div *ngIf="weekday.isDisabled" class="r-date-picker__disable-mask"></div>
+        <div (click)="toggleWeek(weekday)" class="r-date-picker__weekday__clickable">
+          {{ weekday.displayLabel }}
+        </div>
+      </div>
+    </div>
+    <div class="r-date-picker__days-wrap">
+      <div
+        *ngFor="let day of days$ | async"
+        class="r-date-picker__day day {{ day.css }}"
+      >
+        <div *ngIf="day.isDisabled" class="r-date-picker__disable-mask"></div>
+        <div (click)="toggleDay(day)" class="r-date-picker__day__clickable">
+          {{ day.displayLabel }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Month view -->
+  <div
+    *ngIf="(currentView$ | async) === DatepickerView.MONTH"
+    class="r-date-picker__contents months"
+  >
+    <div class="r-date-picker__months-wrap">
+      <div *ngFor="let month of months$ | async"
+        class="r-date-picker__month month {{ month.css }}"
+        (click)="setMonth(month)"
+       >
+        {{ month.displayLabel }}
+      </div>
+    </div>
+  </div>
+  <!-- Year view -->
+  <div
+    *ngIf="(currentView$ | async) === DatepickerView.YEAR"
+    class="r-date-picker__contents years"
+  >
+    <div class="r-date-picker__years-wrap">
+      <div *ngFor="let year of years$ | async" class="r-date-picker__year year {{ year.css }}">
+        <div (click)="setYear(year)">{{ year.displayLabel }}</div>
+      </div>
+    </div>
+  </div>
+</div>
