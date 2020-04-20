@@ -13,6 +13,7 @@ import { ArrowComponent } from './components/arrow/arrow.component';
 import { ButtonComponent } from './components/button/button.component';
 import { HeartBtnComponent } from './components/heart-btn/heart-btn.component';
 import { DatePickerModule } from './date-picker/date-picker.module';
+import { RoundFillIndicatorComponent } from './components/round-fill-indicator/round-fill-indicator.component';
 
 const sharedComponents = [
     ArrowComponent,
@@ -20,6 +21,7 @@ const sharedComponents = [
     CloseBtnComponent,
     HeartBtnComponent,
     PlusBtnComponent,
+    // RoundFillIndicatorComponent,
     SearchInputComponent,
     SectionBottomComponent,
     SectionComponent,

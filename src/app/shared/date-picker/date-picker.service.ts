@@ -196,7 +196,6 @@ export class DatePickerService implements datepicker.DatepickerStore {
     if (state.config.entity.isSingleSelect) {
       return;
     }
-    const viewMoment = state.currentViewMoment.entity;
     const selected = state.selectedMoments.entities;
     const isSelectedWeek = !weekday.isSelected;
     if (isSelectedWeek) {

@@ -36,7 +36,7 @@ export class DatePickerComponent implements OnInit {
     this.weekdays$ = this.store.weekdays$();
     this.years$ = this.store.years$();
 
-    this.store.setConfig({ isSundayFirst: true, isSingleSelect: false, isDisablePast: true, language: dp.DatepickerLanguage.ENG })
+    this.store.setConfig({ isSundayFirst: false, isSingleSelect: false, isDisablePast: true, language: dp.DatepickerLanguage.UA })
   }
 
   public setMonth(month: dp.Month): void {
