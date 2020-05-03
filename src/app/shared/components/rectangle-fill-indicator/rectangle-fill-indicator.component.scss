@@ -1,0 +1,106 @@
+@import "../../../global-styles/index";
+
+.r-rectangle-fill-indicator {
+  $width: 45px;
+  $height: 45px;
+  $separator-height: 2px;
+  $border-radius: calc(#{$width} / 5);
+  $segment-height: calc(((#{$height}) - 4 * (#{$separator-height})) / 5);
+  $content-border-radius: calc((#{$height} - 2 * (#{$segment-height})) / 2);
+
+  @function getNsegmentStart($n) {
+    @return calc(
+      ((#{$n} - 1) * #{$separator-height}) + ((#{$n} - 1) * #{$segment-height})
+    );
+  }
+
+  @function getNsegmentEnd($n) {
+    @return calc(
+      ((#{$n} - 1) * #{$separator-height}) + ((#{$n} - 1) * #{$segment-height}) +
+        #{$segment-height}
+    );
+  }
+
+  // colors
+  $accent: $accent;
+  $grey: #e2dfdf;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $width;
+  height: $height;
+
+  &__content {
+    position: absolute;
+    top: $segment-height;
+    bottom: $segment-height;
+    left: $segment-height;
+    right: $segment-height;
+    background-color: white;
+    border-radius: $content-border-radius;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__wrap {
+    width: $width;
+    height: $height;
+    border-radius: $border-radius;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &.grey {
+    background-color: $grey;
+    z-index: 0;
+  }
+
+  &.orange {
+    background-color: $accent;
+    z-index: 1;
+  }
+
+  &.first {
+    clip-path: polygon(
+      0 getNsegmentStart(1),
+      100% getNsegmentStart(1),
+      100% getNsegmentEnd(1),
+      0% getNsegmentEnd(1)
+    );
+  }
+  &.second {
+    clip-path: polygon(
+      0 getNsegmentStart(2),
+      100% getNsegmentStart(2),
+      100% getNsegmentEnd(2),
+      0% getNsegmentEnd(2)
+    );
+  }
+  &.third {
+    clip-path: polygon(
+      0 getNsegmentStart(3),
+      100% getNsegmentStart(3),
+      100% getNsegmentEnd(3),
+      0% getNsegmentEnd(3)
+    );
+  }
+  &.forth {
+    clip-path: polygon(
+      0 getNsegmentStart(4),
+      100% getNsegmentStart(4),
+      100% getNsegmentEnd(4),
+      0% getNsegmentEnd(4)
+    );
+  }
+  &.fifth {
+    clip-path: polygon(
+      0 getNsegmentStart(5),
+      100% getNsegmentStart(5),
+      100% getNsegmentEnd(5),
+      0% getNsegmentEnd(5)
+    );
+  }
+}

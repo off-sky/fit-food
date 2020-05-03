@@ -5,6 +5,10 @@
         <r-heart-btn (click)="onAddToFav()" [checked]="addedToFav">
         </r-heart-btn>
       </div>
+      <div  class="r-dish-card__add-to-calendar" (click)="$event.stopPropagation()">
+        <r-calendar-icon (click)="onAddToCalendar()"></r-calendar-icon>
+      </div>
+  
     </div>
     <div class="r-dish-card__tags">
       <div class="r-tag">

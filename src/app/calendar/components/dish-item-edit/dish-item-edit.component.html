@@ -1,0 +1,60 @@
+<div class="r-dish-item-edit__meal-name">
+  {{ meal.displayLabel }}
+</div>
+<div
+  *ngIf="meal.dish; else addDishBtn"
+  class="r-dish-item-edit"
+  (click)="onEditMealClicked()"
+>
+  <div class="r-dish-item-edit__number">
+    {{ number }}
+  </div>
+  <div class="r-dish-item-edit__dish-text">
+    <div class="r-dish-item-edit__dish-text__title">
+      Fritata With Shputzini Sauce
+    </div>
+    <div class="r-dish-item-edit__dish-text__description">
+      Stock up on canned tomatoes and canned beans, canned tuna and salmon for
+      tuna...
+    </div>
+  </div>
+  <div class="r-dish-item-edit__dish-photo">
+    <div class="r-dish-item-edit__dish-photo__img">
+      <img src="/assets/food2.png" />
+    </div>
+  </div>
+  <div class="r-dish-item-edit__close" (click)="$event.stopPropagation(); onClearMealClicked()">
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 22 22"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16.6675 6.06076L12.1218 10.6064L16.6675 15.1521L15.1523 16.6674L10.6066 12.1217L6.06091 16.6674L4.54569 15.1521L9.09137 10.6064L4.54569 6.06076L6.06091 4.54553L10.6066 9.09122L15.1523 4.54553L16.6675 6.06076Z"
+        fill="#FB8A05"
+      />
+    </svg>
+  </div>
+</div>
+<ng-template #addDishBtn>
+  <div class="r-dish-item-edit" (click)="onEditMealClicked()">
+    <div class="r-dish-item-edit__number">
+      {{ number }}
+    </div>
+    <div class="r-dish-item-edit__plus-btn">
+      <svg
+        width="25"
+        height="25"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25 14.2857H14.2857V25H10.7143V14.2857H0V10.7143H10.7143V0H14.2857V10.7143H25V14.2857Z"
+          fill="#FB8A05"
+        />
+      </svg>
+    </div>
+  </div>
+</ng-template>

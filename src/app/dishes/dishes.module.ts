@@ -5,6 +5,7 @@ import { DishCardComponent } from './components/dish-card/dish-card.component';
 import { SharedModule } from '../shared/shared.module';
 import { DishDetailsComponent } from './components/dish-details/dish-details.component';
 import { RecentItemsModule } from './recent-items/recent-items.module';
+import { AddToCalendarComponent } from './containers/add-to-calendar/add-to-calendar.component';
 
 
 
@@ -12,7 +13,8 @@ import { RecentItemsModule } from './recent-items/recent-items.module';
   declarations: [
     DishListRootComponent,
     DishCardComponent,
-    DishDetailsComponent
+    DishDetailsComponent,
+    AddToCalendarComponent
   ],
   entryComponents: [
     DishDetailsComponent

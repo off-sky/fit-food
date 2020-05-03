@@ -1,0 +1,5 @@
+<r-actions-mobile *ngIf="isMobile$ | async; else desktop" [actions]="actions"></r-actions-mobile>
+<ng-template #desktop>
+    <r-actions-desktop [actions]="actions"></r-actions-desktop>
+</ng-template>
+

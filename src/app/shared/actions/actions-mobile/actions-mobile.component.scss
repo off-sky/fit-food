@@ -1,0 +1,44 @@
+@import '../../../global-styles/index';
+
+.r-actions-mobile {
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0px -3px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+
+    &__action {
+        flex: 1;
+        position: relative;
+    }
+}
+
+.action-btn {
+    height: 70px;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+ 
+
+    &.accent {
+        color: white;
+        background-color: $accent;
+    }
+    &.accent_border {
+        color: $accent;
+        background-color: white;
+        border: 1px solid $accent;
+    }
+}
+
+.disable-mask {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    background-color: white;
+}

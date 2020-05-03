@@ -1,0 +1,12 @@
+@import '../../../global-styles/index';
+
+.r-back-btn-svg {
+    &__wrap {
+        &:hover {
+            .r-back-btn-svg {
+                fill: $grey-dark;
+            }
+        }
+        cursor: pointer;
+    }
+}

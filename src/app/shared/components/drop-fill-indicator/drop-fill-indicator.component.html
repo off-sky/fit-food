@@ -1,0 +1,21 @@
+<div class="r-drop-fill-indicator">
+    <div class="r-indicator__contents">
+        <div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+    <div class="r-indicator__container" >
+        <div class="r-indicator grey first"></div>
+        <div class="r-indicator grey second"></div>
+        <div class="r-indicator grey third"></div>
+        <div class="r-indicator grey forth"></div>
+        <div class="r-indicator grey fifth"></div>
+    </div>
+    <div class="r-indicator__container">
+        <div class="r-indicator orange first" *ngIf="filled[0]"></div>
+        <div class="r-indicator orange second" *ngIf="filled[1]"></div>
+        <div class="r-indicator orange third" *ngIf="filled[1]"></div>
+        <div class="r-indicator orange forth" *ngIf="filled[1]"></div>
+        <div class="r-indicator orange fifth" *ngIf="filled[1]"></div>
+    </div>
+</div>

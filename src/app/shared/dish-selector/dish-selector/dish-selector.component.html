@@ -1,0 +1,13 @@
+
+<div class="r-dish-selector">
+    <div class="r-dish-list-root__search-input-wrap">
+        <div class="r-dish-list-root__search-input">
+            <r-search-input></r-search-input>
+        </div>
+    </div>
+    <div *ngFor="let dish of dishes$ | async;" class="r-dish-selector__dish-item"
+        (click)="onSelect(dish)"
+        >
+        <r-list-item [selected]="dish === (selectedChanged$ | async)"></r-list-item>
+    </div>
+</div>

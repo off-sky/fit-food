@@ -1,5 +1,11 @@
 <r-section>
-    <r-section-content>
-        <r-date-picker></r-date-picker>
-    </r-section-content>
+  <r-section-content>
+    <div class="r-calendar-wrap">
+      <r-date-picker
+        [allowSelect]="false"
+        [dateFilledMap]="dayFilledMap"
+        (dayClicked)="onDayClicked($event)"
+      ></r-date-picker>
+    </div>
+  </r-section-content>
 </r-section>

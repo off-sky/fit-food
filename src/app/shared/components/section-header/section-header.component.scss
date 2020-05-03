@@ -1,0 +1,11 @@
+.r-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    &__back-btn {
+        margin-right: 17px;
+    }
+    &__title {
+        font-size: 18px;
+    }
+}

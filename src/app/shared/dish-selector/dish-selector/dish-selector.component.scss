@@ -1,0 +1,17 @@
+.r-dish-selector {
+    &__dish-item {
+        margin-bottom: 20px;
+    }
+}
+
+.r-dish-list-root {
+
+    &__search-input {
+        width: 70%;
+        &-wrap {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

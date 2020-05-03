@@ -4,10 +4,26 @@
   $offset: 3px;
   $accent: $accent;
   $grey: #E2DFDF;
+  $size: 40px;
+  $ctg30: 1.732;
+    $center-offset: calc((0.5 * (#{$size})) / (#{$ctg30}));
+    $half-low: calc(50% - 0.5 * (#{$offset}));
+    $half-high: calc(50% + 0.5 * (#{$offset}));
+
+    $one-third-low: calc(50% - (1 * (#{$center-offset})) - 0.6 * (#{$offset}));
+    $one-third-high: calc(50% - (1 * (#{$center-offset})) + 0.6 * (#{$offset}));
+    $two-third-low: calc(50% + (1 * (#{$center-offset})) - 0.6 * (#{$offset}));
+    $two-third-high: calc(50% + (1 * (#{$center-offset})) + 0.6 * (#{$offset}));
+
+    $zero-low: calc(0% - 0.5 * (#{$offset}));
+    $zero-low: calc(0% + 0.5 * (#{$offset}));
+
+    $full-low: calc(100% - 0.5 * (#{$offset}));
+    $full-high: calc(100% + 0.5 * (#{$offset}));
   
 .r-round-fill-indicator {
-    width: 40px;
-    height: 40px;
+    width: $size;
+    height: $size;
     // border: 1px solid white;
     box-sizing: border-box;
     display: flex;
@@ -25,28 +41,28 @@
         top: 1px;
         left: 1px;
         &.h9 {
-            clip-path: polygon(0% $offset, 50% 50%, 0% calc(50% - #{$offset}))
+            opacity: 1;
+            clip-path: polygon(0% $half-low, 50% 50%, $one-third-low  0%, 0% 0%);
         }
         &.h11 {
-            clip-path: polygon($offset 0%, 50% 50%, calc(50% - 0.5 * (#{$offset})) 0%);
-        }
-        &.h12 {
-            clip-path: polygon(calc(50% + 0.5 * (#{$offset})) 0%, 50% 50%, calc(100% - #{$offset}) 0%);
+            opacity: 0.90;
+            clip-path: polygon($one-third-high 0%, 50% 50%, $two-third-low 0%);
         }
         &.h1 {
-            clip-path: polygon(100% $offset, 50% 50%, 100% calc(50% - 0.5 * (#{$offset})));
+            opacity: 0.80;
+            clip-path: polygon($two-third-high 0%, 50% 50%, 100% $half-low, 100% 0%);
         }
         &.h3 {
-            clip-path: polygon(100% calc(50% + 0.5 * (#{$offset})), 50% 50%, 100% calc(100% - #{$offset}));
+            opacity: 0.70;
+            clip-path: polygon(100% $half-high, 50% 50%, $two-third-high 100%, 100% 100%);
         }
-        &.h4 {
-            clip-path: polygon(calc(100% - #{$offset}) 100%, 50% 50%, calc(50% + 0.5 * (#{$offset})) 100%);
-        }
-        &.h6 {
-            clip-path: polygon(calc(50% - 0.5 * (#{$offset})) 100%, 50% 50%, $offset 100%);
+        &.h5 {
+            opacity: 0.60;
+            clip-path: polygon($two-third-low 100%, 50% 50%, $one-third-high 100%);
         }
         &.h7 {
-            clip-path: polygon(0% calc(100% - #{$offset}), 50% 50%, 0% calc(50% + 0.5 * (#{$offset})));
+            opacity: 0.50;
+            clip-path: polygon($one-third-low 100%, 50% 50%, 0% $half-high, 0% 100%);
         }
     }
 
@@ -62,31 +78,31 @@
         clip-path: circle(0% at center);
         transition: clip-path 1s;
         box-sizing: border-box;
-       
+    
         &.h9 {
-            clip-path: polygon(0% $offset, 50% 50%, 0% calc(50% - #{$offset}))
+            opacity: 1;
+            clip-path: polygon(0% $half-low, 50% 50%, $one-third-low  0%, 0% 0%);
         }
         &.h11 {
-            clip-path: polygon($offset 0%, 50% 50%, calc(50% - 0.5 * (#{$offset})) 0%);
-        }
-        &.h12 {
-            clip-path: polygon(calc(50% + 0.5 * (#{$offset})) 0%, 50% 50%, calc(100% - #{$offset}) 0%);
+            opacity: 0.90;
+            clip-path: polygon($one-third-high 0%, 50% 50%, $two-third-low 0%);
         }
         &.h1 {
-            clip-path: polygon(100% $offset, 50% 50%, 100% calc(50% - 0.5 * (#{$offset})));
+            opacity: 0.80;
+            clip-path: polygon($two-third-high 0%, 50% 50%, 100% $half-low, 100% 0%);
         }
         &.h3 {
-            clip-path: polygon(100% calc(50% + 0.5 * (#{$offset})), 50% 50%, 100% calc(100% - #{$offset}));
+            opacity: 0.70;
+            clip-path: polygon(100% $half-high, 50% 50%, $two-third-high 100%, 100% 100%);
         }
-        &.h4 {
-            clip-path: polygon(calc(100% - #{$offset}) 100%, 50% 50%, calc(50% + 0.5 * (#{$offset})) 100%);
-        }
-        &.h6 {
-            clip-path: polygon(calc(50% - 0.5 * (#{$offset})) 100%, 50% 50%, $offset 100%);
+        &.h5 {
+            opacity: 0.60;
+            clip-path: polygon($two-third-low 100%, 50% 50%, $one-third-high 100%);
         }
         &.h7 {
-            clip-path: polygon(0% calc(100% - #{$offset}), 50% 50%, 0% calc(50% + 0.5 * (#{$offset})));
-        }        
+            opacity: 0.50;
+            clip-path: polygon($one-third-low 100%, 50% 50%, 0% $half-high, 0% 100%);
+        }      
     }
 
     &__content {

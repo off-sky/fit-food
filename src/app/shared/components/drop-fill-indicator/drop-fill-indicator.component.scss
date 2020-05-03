@@ -1,0 +1,83 @@
+@import "../../../global-styles/index";
+
+$width: 37px;
+$height: 37px;
+$big-size: calc(0.19 * #{$width});
+$small-size: calc(0.11 * #{$width});
+$interval: calc(0.05 * #{$width});
+
+// colors
+$accent: $accent;
+$grey: #e2dfdf;
+
+.r-drop-fill-indicator { 
+    height: $height;
+    width: $width;
+    position: relative;
+}
+
+.r-indicator {
+    border-radius: 50%;
+    position: absolute;
+
+    $index: 5px;
+
+    &.grey {
+        background-color: $grey;
+    }
+
+    &.orange {
+        background-color: $accent;
+    }
+
+    &.first {
+        left: 0;
+        top: 0;
+    }
+
+    &.second {
+        left: calc((#{$big-size} + #{$interval}));
+        // top: calc(1.3 * #{$index});
+    }
+
+    &.third {
+        left: calc((#{$big-size} + #{$interval}) + (#{$small-size} + #{$interval}));
+        // top: calc(1.3 * #{$index});
+    }
+
+    &.forth {
+        left: calc(2 * (#{$big-size} + #{$interval}) + (#{$small-size} + #{$interval}));
+        // top: calc(1.3 * #{$index});
+    }
+
+    &.fifth {
+        left: calc(2 * (#{$big-size} + #{$interval}) + 2 * (#{$small-size} + #{$interval}));
+        top: 0;
+    }
+
+    &.first, &.third, &.fifth {
+        // top: 0;
+        width: $big-size;
+        height: $big-size;
+    }
+    &.second, &.forth {
+        // top: calc((#{$big-size} - #{$small-size}) / 2);
+        width: $small-size;
+        height: $small-size;
+    }
+}
+
+.r-indicator__contents {
+    position: absolute;
+    width: $width;
+    top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.r-indicator__container {
+    position: relative;
+    bottom: -30px;
+    left: 0;
+}

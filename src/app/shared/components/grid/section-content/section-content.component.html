@@ -1,1 +1,8 @@
-<ng-content></ng-content>
+<div class="r-content-wrap">
+    <div class="r-content" [ngClass]="{
+        'mobile': isMobile$ | async
+    }">
+        <ng-content></ng-content>
+    </div>
+</div>
+

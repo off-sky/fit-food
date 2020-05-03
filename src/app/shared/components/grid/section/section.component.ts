@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ScreenSizeService } from 'src/app/core/screen-size/screen-size.service';
+import { ScreenSizes } from 'src/app/core/screen-size/interfaces';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'r-section',
@@ -7,9 +11,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
+   
   }
 
 }

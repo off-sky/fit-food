@@ -3,6 +3,7 @@ import { PopupableService } from 'src/app/core/popupable/popupable.service';
 import { DishDetailsComponent } from '../dish-details/dish-details.component';
 import { RecentItemService } from '../../recent-items/recent-item.service';
 import { ToastService } from 'src/app/core/toast/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'r-dish-card',
@@ -16,6 +17,7 @@ export class DishCardComponent implements OnInit {
   constructor(
     private popupableService: PopupableService,
     private recentService: RecentItemService,
+    private router: Router,
     private toastService: ToastService
   ) { }
 
@@ -36,5 +38,9 @@ export class DishCardComponent implements OnInit {
     } else {
       this.toastService.openToast('Видалено з улюблених');
     }
+  }
+
+  public onAddToCalendar(): void {
+    this.router.navigate(['dishes', 'add-to-calendar', '123']);
   }
 }

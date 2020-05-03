@@ -7,6 +7,7 @@
           (click)="onAddedToFav()"
         ></r-heart-btn>
       </div>
+      <r-calendar-icon (click)="onAddToCalendar()"></r-calendar-icon>
     </div>
     <div class="r-dish-details__tags"></div>
     <div class="r-dish-details__photos">
@@ -104,11 +105,18 @@
       </div>
     </div>
     <div class="r-dish-details__cta">
-      <div class="r-dish-details__cta__btn">
+      <div class="r-dish-details__add-to-fav-btn">
+        <r-heart-btn
+          [checked]="addedToFav"
+          (click)="onAddedToFav()"
+        ></r-heart-btn>
+      </div>
+      <r-calendar-icon (click)="onAddToCalendar()"></r-calendar-icon>
+      <!-- <div class="r-dish-details__cta__btn">
         <r-button>
           Add to calendar...
         </r-button>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

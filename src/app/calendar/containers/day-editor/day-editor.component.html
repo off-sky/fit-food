@@ -1,0 +1,22 @@
+<r-section>
+  <r-section-content>
+    <r-section-header (backClicked)="onBack()">
+      {{ title }}
+    </r-section-header>
+    <r-section-body>
+      <ng-container *ngFor="let dish of dishes$ | async; let ind = index">
+        <div class="r-day-editor__dish-list-item">
+          <r-dish-item-edit
+            [number]="ind + 1"
+            [meal]="dish"
+            (mealEditClicked)="onEditMealClick($event)"
+            (mealClearClicked)="onClearMealClick($event)"
+          ></r-dish-item-edit>
+        </div>
+      </ng-container>
+    </r-section-body>
+  </r-section-content>
+  <r-section-bottom>
+    <r-actions [actions]="actions"></r-actions>
+  </r-section-bottom>
+</r-section>

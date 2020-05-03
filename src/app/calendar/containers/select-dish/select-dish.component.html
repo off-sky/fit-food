@@ -1,0 +1,14 @@
+
+<r-section>
+    <r-section-content class="r-select-dish">
+        <r-section-header (backClicked)="onBack()">
+            {{ title }}
+        </r-section-header>
+        <r-section-body>
+           <r-dish-selector (selectedChanged)="onDishSelectedChanged($event)"></r-dish-selector>
+        </r-section-body>
+    </r-section-content>
+    <r-section-bottom>
+        <r-actions [actions]="actions$ | async"></r-actions>
+    </r-section-bottom>
+</r-section>

@@ -1,0 +1,15 @@
+@import '../../../global-styles/index';
+
+.path {
+    fill: $accent;
+
+    &:hover {
+        fill: $accent-dark;
+    }
+}
+
+.wrap {
+    display: inline-block;
+    width: 18px;
+    cursor: pointer;
+}

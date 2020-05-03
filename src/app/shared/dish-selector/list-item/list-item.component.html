@@ -1,0 +1,31 @@
+<div
+  class="r-dish-card"
+  [ngClass]="{
+    selected: selected
+  }"
+>
+  <div class="r-dish-card__left">
+    <div class="r-dish-card__title">
+      Fritata with Shputzini Sauce
+    </div>
+    <div class="r-dish-card__tags">
+      <div class="r-tag">
+        Breakfast
+      </div>
+    </div>
+    <div class="r-dish-card__description">
+      It's always nice when the best version of a recipe is also the easiest.
+      After testing many almond....
+      <span
+        class="r-dish-card__view-details-link"
+        (click)="$event.stopPropagation(); onViewDetailsClick()"
+        >
+        View Details
+        </span
+      >
+    </div>
+  </div>
+  <div class="r-dish-card__right">
+    <img src="/assets/food.png" class="r-dish-card__image" alt="Dish image" />
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<r-section>
+    <r-section-content>
+        <r-section-header (backClicked)="onBack()">
+            {{ title }}
+        </r-section-header>
+        <r-section-body>
+            <!-- <ng-container *ngIf="empty$ | async; else dishList;">
+                <r-no-dishes-for-day (addClicked)="onNewClicked()"></r-no-dishes-for-day>
+            </ng-container> -->
+            <!-- <ng-template #dishList> -->
+                <ng-container *ngFor="let dish of meals$ | async; let ind=index;">
+                    <div *ngIf="dish.dish" class="r-day-details__dish-list-item"
+                        (click)="onDishClick()"
+                        >
+                        <r-dish-item-display [number]="ind + 1" [meal]="dish" (mealClearClicked)="onClearMealClick($event)"></r-dish-item-display>
+                    </div>
+                    <div *ngIf="!dish.dish" class="r-day-details__dish-list-item">
+                        <r-dish-item-edit [number]="ind + 1" [meal]="dish" (mealEditClicked)="onMealEditClicked($event)"></r-dish-item-edit>
+                    </div>
+                </ng-container>
+            <!-- </ng-template> -->
+        </r-section-body>
+    </r-section-content>
+    <!-- <r-section-bottom *ngIf="!(empty$ | async)">
+        <r-actions [actions]="actions"></r-actions>
+    </r-section-bottom> -->
+</r-section>

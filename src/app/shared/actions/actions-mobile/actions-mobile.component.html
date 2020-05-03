@@ -1,0 +1,9 @@
+<div class="r-actions-mobile">
+    <div *ngFor="let action of actions" class="r-actions-mobile__action">
+        <div class="disable-mask" *ngIf="action.disabled">
+        </div>
+        <div class="action-btn {{action.color}}" (click)="onActionClick(action)">
+            {{ action.displayLabel }}
+        </div>
+    </div>
+</div>

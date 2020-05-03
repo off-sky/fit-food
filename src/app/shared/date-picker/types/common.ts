@@ -1,4 +1,5 @@
 import * as moment from 'moment';
+import * as fromTypes from '../../../../types';
 
 /**
  * e.g. 2009/11/01
@@ -72,5 +73,5 @@ export const locales = {
 };
 
 export const momentId = (m: moment.Moment): string => {
-    return m.format('YY/MM/DD');
+    return fromTypes.utils.getMomentId(m);
 }

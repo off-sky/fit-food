@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { DatePickerService } from '../date-picker.service';
 import { Observable } from 'rxjs';
 import * as dp from '../types';
@@ -10,6 +10,23 @@ import * as dp from '../types';
   providers: [ DatePickerService ]
 })
 export class DatePickerComponent implements OnInit {
+
+  /**
+   * Should select date on click
+   */
+  @Input() public allowSelect: boolean = true;
+
+  /**
+   * [momentId: string]: [ filled, filled, ..., filled ]
+   */
+  @Input() public dateFilledMap: {} = {};
+
+
+  /**
+   * A day was clicked in the calendar
+   */
+  @Output() public dayClicked: EventEmitter<dp.Day> = new EventEmitter<dp.Day>();
+
 
   public currentMonth$: Observable<dp.WithCSSAndLabel<dp.Month>>;
   public currentView$: Observable<dp.DatepickerView>;
@@ -54,11 +71,16 @@ export class DatePickerComponent implements OnInit {
   }
 
   public toggleDay(day: dp.Day): void {
-    this.store.toggleDay(day);
+    this.dayClicked.emit(day);
+    if (this.allowSelect) {
+      this.store.toggleDay(day);
+    }
   }
 
   public toggleWeek(weekday: dp.Weekday): void {
-    this.store.toggleWeek(weekday)
+    if (this.allowSelect) {
+      this.store.toggleWeek(weekday);
+    }
   }
 
   public forward(): void {

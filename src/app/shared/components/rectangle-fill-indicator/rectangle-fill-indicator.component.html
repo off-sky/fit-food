@@ -1,0 +1,32 @@
+<div class="r-rectangle-fill-indicator__wrap">
+    <div class="r-rectangle-fill-indicator__content">
+        <div>
+            <ng-content>
+            </ng-content>
+        </div>
+    </div>
+    <div class="r-rectangle-fill-indicator grey first">
+    </div>
+    <div class="r-rectangle-fill-indicator grey second">
+    </div>
+    <div class="r-rectangle-fill-indicator grey third">
+    </div>
+    <div class="r-rectangle-fill-indicator grey forth">
+    </div>
+    <div class="r-rectangle-fill-indicator grey fifth">
+    </div>
+
+    <!-- orange -->
+    <div class="r-rectangle-fill-indicator orange first" *ngIf="filled[0]">
+    </div>
+    <div class="r-rectangle-fill-indicator orange second" *ngIf="filled[1]">
+    </div>
+    <div class="r-rectangle-fill-indicator orange third" *ngIf="filled[2]">
+    </div>
+    <div class="r-rectangle-fill-indicator orange forth" *ngIf="filled[3]">
+    </div>
+    <div class="r-rectangle-fill-indicator orange fifth" *ngIf="filled[4]">
+    </div>
+
+
+</div>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AbstractPopupComponent } from 'src/app/core/popupable/types/abstract-popup-component';
 import { PopupRef } from 'src/app/core/popupable/types/popup-ref';
 import { ToastService } from 'src/app/core/toast/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'r-dish-details',
@@ -14,7 +15,8 @@ export class DishDetailsComponent implements OnInit, AbstractPopupComponent<any,
   public addedToFav = false;
 
   constructor(
-    private toastService: ToastService
+    private toastService: ToastService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +26,11 @@ export class DishDetailsComponent implements OnInit, AbstractPopupComponent<any,
     if (this.popupRef) {
       this.popupRef.close({});
     }
+  }
+
+  public onAddToCalendar(): void {
+    this.router.navigate(['dishes', 'add-to-calendar', '123']);
+    this.onClose();
   }
 
   public onAddToShoppingList(id: number): void {

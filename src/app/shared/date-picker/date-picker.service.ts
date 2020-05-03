@@ -330,7 +330,7 @@ export class DatePickerService implements datepicker.DatepickerStore {
   ): boolean {
     const today = moment();
     if (disablePast) {
-      if (m.isBefore(today)) {
+      if (m.isBefore(today, 'day')) {
         return true;
       }
     }
@@ -356,6 +356,7 @@ export class DatePickerService implements datepicker.DatepickerStore {
           const curr = moment(moment(startOfWeek).add(i, "d"));
           const id = datepicker.momentId(curr);
           const day = {
+            id: datepicker.momentId(curr),
             moment: curr,
             isOtherMonth: curr.month() !== m.month(),
             isSelected: !!state.selectedMoments.entities[id],

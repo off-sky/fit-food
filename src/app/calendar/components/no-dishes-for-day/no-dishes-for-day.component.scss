@@ -1,0 +1,19 @@
+@import '../../../global-styles/index';
+
+.r-no-dishes {
+    margin-top: 135px;
+    display: flex;
+    justify-content: center;
+    &__box {
+        text-align: center;
+    }
+    &__cta {
+        color: $accent;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-top: 10px;
+        &:hover {
+            color: $accent-dark;
+        }
+    }
+}

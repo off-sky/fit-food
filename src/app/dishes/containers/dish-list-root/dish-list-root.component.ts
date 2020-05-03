@@ -25,7 +25,7 @@ export class DishListRootComponent implements OnInit {
   public onOpenedFromRecentList(): void {
     this.popupableService.open<any, any, any>(DishDetailsComponent, {})
       .subscribe(res => {
-      })
+      });
   }
 
 }
