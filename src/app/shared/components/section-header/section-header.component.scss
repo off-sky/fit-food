@@ -2,6 +2,9 @@
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+    &.align-center {
+        justify-content: center;
+    }
     &__back-btn {
         margin-right: 17px;
     }

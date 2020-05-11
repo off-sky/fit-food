@@ -1,1 +1,19 @@
-<p>add-to-calendar works!</p>
+<r-section>
+  <r-section-content>
+    <r-section-header [alignCenter]="true" (backClicked)="onBack()">
+      When would like to have Fritatta With Shputzini Sauce
+    </r-section-header>
+    <r-section-body [alignCenter]="true">
+      <div class="r-add-to-clendar__body__wrap">
+        <r-date-picker
+          [allowSelect]="true"
+          [dateFilledMap]="dayFilledMap"
+          (selectedChanged)="onSelectedChanged($event)"
+        ></r-date-picker>
+      </div>
+    </r-section-body>
+  </r-section-content>
+  <r-section-bottom>
+      <r-actions [actions]="actions$ | async"></r-actions>
+  </r-section-bottom>
+</r-section>

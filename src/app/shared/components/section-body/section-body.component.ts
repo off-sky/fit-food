@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'r-section-body',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./section-body.component.scss']
 })
 export class SectionBodyComponent implements OnInit {
+
+  @Input() public alignCenter = false;
 
   constructor() { }
 

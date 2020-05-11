@@ -12,7 +12,7 @@ interface State {
 })
 export class RecentItemService {
 
-  private state$: BehaviorSubject<State> = new BehaviorSubject<State>({ items: [], collapsed: false });
+  private state$: BehaviorSubject<State> = new BehaviorSubject<State>({ items: [], collapsed: true });
 
   constructor() { }
 

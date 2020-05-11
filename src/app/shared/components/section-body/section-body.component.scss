@@ -1,3 +1,7 @@
 .r-section-body {
     width: 100%;
+    &.align-center {
+        display: flex;
+        justify-content: center;
+    }
 }

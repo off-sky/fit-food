@@ -8,6 +8,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 export class DropFillIndicatorComponent implements OnInit, OnChanges {
 
   @Input() public filled: boolean[] = [];
+  @Input() public selected: boolean;
 
   public isAnyFilled: boolean;
 

@@ -1,4 +1,13 @@
 
-<!-- <div style="margin-left: 20px; margin-top: 20px;">
-    <r-drop-fill-indicator></r-drop-fill-indicator>
-</div> -->
+<r-section>
+    <r-section-content>
+        <r-section-header>
+            Shopping List
+        </r-section-header>
+        <r-section-content>
+            <div *ngFor="let item of list$ | async" class="r-shopping-list-item__wrap">
+                <r-shopping-list-item [item]="item"></r-shopping-list-item>
+            </div>
+        </r-section-content>
+    </r-section-content>
+</r-section>

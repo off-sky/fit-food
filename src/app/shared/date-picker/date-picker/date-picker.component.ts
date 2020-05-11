@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { DatePickerService } from '../date-picker.service';
 import { Observable } from 'rxjs';
 import * as dp from '../types';
+import * as moment from 'moment';
 
 @Component({
   selector: 'r-date-picker',
@@ -26,6 +27,11 @@ export class DatePickerComponent implements OnInit {
    * A day was clicked in the calendar
    */
   @Output() public dayClicked: EventEmitter<dp.Day> = new EventEmitter<dp.Day>();
+
+  /**
+   * Emits on every change of selected days
+   */
+  @Output() public selectedChanged: EventEmitter<moment.Moment[]> = new EventEmitter<moment.Moment[]>();
 
 
   public currentMonth$: Observable<dp.WithCSSAndLabel<dp.Month>>;
@@ -53,7 +59,9 @@ export class DatePickerComponent implements OnInit {
     this.weekdays$ = this.store.weekdays$();
     this.years$ = this.store.years$();
 
-    this.store.setConfig({ isSundayFirst: false, isSingleSelect: false, isDisablePast: true, language: dp.DatepickerLanguage.UA })
+    this.store.setConfig({ isSundayFirst: false, isSingleSelect: false, isDisablePast: true, language: dp.DatepickerLanguage.ENG });
+    this.store.selectedChanged$()
+      .subscribe(vals => this.selectedChanged.emit(vals));
   }
 
   public setMonth(month: dp.Month): void {

@@ -80,4 +80,12 @@ $grey: #e2dfdf;
     position: relative;
     bottom: -30px;
     left: 0;
+    &.selected {
+        .r-indicator.orange {
+            border: 1px solid white;
+        }
+        .r-indicator.grey {
+            background-color: white;
+        }
+    }
 }

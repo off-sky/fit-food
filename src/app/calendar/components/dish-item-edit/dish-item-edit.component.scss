@@ -4,7 +4,8 @@
     box-sizing: border-box;
     height: 85px;
     background-color: white;
-    box-shadow: -1px 4px 4px rgba(0, 0, 0, 0.18);
+    // box-shadow: -1px 4px 4px rgba(0, 0, 0, 0.18);
+    border: 1px solid $accent;
     padding: 10px;
     display: flex;
     cursor: pointer;

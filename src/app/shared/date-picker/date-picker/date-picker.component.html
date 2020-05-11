@@ -60,6 +60,7 @@
         <div (click)="toggleDay(day)" class="r-date-picker__day__clickable">
           <r-drop-fill-indicator *ngIf="!day.isDisabled"
             [filled]="dateFilledMap[day.id] || []"
+            [selected]="day.isSelected"
             >
             {{ day.displayLabel }}
           </r-drop-fill-indicator>

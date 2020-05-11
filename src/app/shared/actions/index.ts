@@ -6,7 +6,7 @@ export enum ActionColors {
 
 export interface Action {
     displayLabel: string;
-    callback: Function;
+    callback?: Function;
     disabled: boolean;
     color: ActionColors;
 }
