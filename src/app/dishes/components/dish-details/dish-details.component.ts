@@ -3,6 +3,7 @@ import { AbstractPopupComponent } from 'src/app/core/popupable/types/abstract-po
 import { PopupRef } from 'src/app/core/popupable/types/popup-ref';
 import { ToastService } from 'src/app/core/toast/toast.service';
 import { Router } from '@angular/router';
+import { ShoppingStoreService } from 'src/app/shopping/shopping-store.service';
 
 @Component({
   selector: 'r-dish-details',
@@ -16,6 +17,7 @@ export class DishDetailsComponent implements OnInit, AbstractPopupComponent<any,
 
   constructor(
     private toastService: ToastService,
+    private shoppingListService: ShoppingStoreService,
     private router: Router
   ) { }
 
@@ -33,12 +35,14 @@ export class DishDetailsComponent implements OnInit, AbstractPopupComponent<any,
     this.onClose();
   }
 
-  public onAddToShoppingList(id: number): void {
+  public onAddToShoppingList(id: number, descr: string): void {
     if (!this.isAdded(id)) {
       this.shoppingList.push(id);
+      this.shoppingListService.createFromExisting('' + id, descr)
       this.toastService.openToast('Додано до списку покупок');
     } else {
       this.shoppingList = this.shoppingList.filter(item => item !== id);
+      this.shoppingListService.remove('' + id);
       this.toastService.openToast('Видалено зі списку покупок');
     }
   }

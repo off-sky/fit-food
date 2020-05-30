@@ -1,0 +1,56 @@
+@import '../../../global-styles/index';
+
+.r-shopping-list-item {
+    display: flex;
+    align-items: center;
+
+    &__col {
+        &.icon {
+            width: 25px;
+        }
+        &.description {
+            margin-right: 30px;
+            flex: 1;
+        }
+    }
+
+    &__description {
+        &__text {
+            &.completed {
+                color: $grey;
+                text-decoration: line-through;
+            }
+        }
+
+        &__textarea {
+            border: 1px solid #BFBFBF;
+            border-radius: 10px;
+            font-size: 14px;
+            padding: 5px 10px;
+            display: block;
+            min-width: 100%;
+        }
+    }
+
+    &__round-icon {
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background-color: $accent;
+    }
+
+
+    &__save-btn {
+        font-size: 14px;
+        color: $grey;
+        &.active {
+            cursor: pointer;
+            color: $accent;
+        }
+
+    }
+    &__remove-btn {
+        font-size: 14px;
+        color: $grey-dark;
+    }
+}

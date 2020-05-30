@@ -9,6 +9,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class SectionHeaderComponent implements OnInit {
 
   @Input() public alignCenter = false;
+  @Input() public hasBack = true;
 
   @Output() public backClicked: EventEmitter<void> = new EventEmitter<void>();
 

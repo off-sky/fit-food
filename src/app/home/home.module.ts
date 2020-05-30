@@ -9,6 +9,9 @@ import { SectionTabsComponent } from './components/section-tabs/section-tabs.com
 import { DishesModule } from '../dishes/dishes.module';
 import { CalendarModule } from '../calendar/calendar.module';
 import { ShoppingModule } from '../shopping/shopping.module';
+import { AccountComponent } from './containers/account/account.component';
+import { ProfileModule } from '../profile/profile.module';
+import { UserMenuModule } from './user-menu/user-menu.module';
 
 
 
@@ -18,7 +21,8 @@ import { ShoppingModule } from '../shopping/shopping.module';
     MainMenuComponent,
     MainMenuDesktopComponent,
     MainMenuMobileComponent,
-    SectionTabsComponent
+    SectionTabsComponent,
+    AccountComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +30,8 @@ import { ShoppingModule } from '../shopping/shopping.module';
     CalendarModule,
     ShoppingModule,
     HomeRoutingModule,
+    ProfileModule,
+    UserMenuModule
   ]
 })
 export class HomeModule { }

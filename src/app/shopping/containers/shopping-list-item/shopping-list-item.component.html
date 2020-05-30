@@ -1,1 +1,59 @@
-<p>shopping-list-item works!</p>
+<div class="r-shopping-list-item" >
+  <div class="r-shopping-list-item__col icon" (click)="onToggleCompleted()">
+    <div
+      *ngIf="!item.isCompleted"
+      class="r-shopping-list-item__round-icon"
+    ></div>
+    <svg
+      *ngIf="item.isCompleted"
+      width="15"
+      height="14"
+      viewBox="0 0 15 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M14.345 0.101492C13.6681 -0.262979 12.9131 0.43993 12.4705 0.85647C11.4553 1.84575 10.5961 2.99123 9.63286 4.03258C8.56548 5.17806 7.5762 6.32355 6.48278 7.44304C5.85798 8.06785 5.1811 8.74472 4.76456 9.52573C3.82735 8.61451 3.02031 7.62523 1.97896 6.81823C1.22398 6.24549 -0.0256333 5.82895 0.000400376 7.20873C0.0524677 9.0051 1.64052 10.9316 2.81204 12.1551C3.30668 12.6758 3.95752 13.2225 4.7125 13.2486C5.62367 13.3006 6.56089 12.2072 7.10759 11.6084C8.07088 10.5671 8.85189 9.39552 9.73699 8.32818C10.8825 6.92236 12.054 5.54253 13.1734 4.11068C13.8763 3.22554 16.0892 1.03866 14.345 0.101492ZM1.14584 7.1046C1.11981 7.1046 1.09377 7.1046 1.0417 7.13059C0.93757 7.1046 0.859469 7.07852 0.755334 7.02646C0.833435 6.97439 0.963604 7.00042 1.14584 7.1046Z"
+        fill="#E2DFDF"
+      />
+    </svg>
+  </div>
+  <div class="r-shopping-list-item__col description">
+    <div class="r-shopping-list-item__description">
+      <div
+        *ngIf="editedId === item.id"
+        class="r-shopping-list-item__description__textarea-wrap"
+        (click)="$event.stopPropagation()"
+      >
+        <textarea #textArea
+            name="{{item.id}}"
+          [formControl]="descriptionFormControl"
+          rClickOutside
+          (rClickOutside)="onCloseEdit()"
+          class="r-shopping-list-item__description__textarea"
+        ></textarea>
+      </div>
+      <div *ngIf="editedId !== item.id"
+            class="r-shopping-list-item__description__text"
+            (click)="onToggleCompleted()"
+            [ngClass]="{
+                'completed': item.isCompleted
+            }"
+        >
+        {{ item.displayName }}
+      </div>
+    </div>
+  </div>
+  <div class="r-shopping-list-item__col edit" (click)="$event.stopPropagation()">
+    <ng-container *ngIf="editedId === item.id">
+        <div class="r-shopping-list-item__remove-btn"
+            (click)="onRemove()"
+            >
+          REMOVE
+        </div>
+    </ng-container>
+    <div *ngIf="editedId !== item.id && !item.isCompleted">
+      <r-edit-btn (click)="$event.stopPropagation(); onStartEdit()"></r-edit-btn>
+    </div>
+  </div>
+</div>

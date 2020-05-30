@@ -1,0 +1,29 @@
+@import '../../../global-styles/index';
+
+.r-shopping-root {
+    position: relative;
+    &__add-wrap {
+        position: absolute;
+        right: 30px;
+        top: -55px;
+    }
+    &__empty-list {
+        font-size: 14px;
+        min-height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+            color: $accent;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.r-shopping-list-item__wrap {
+    margin-bottom: 20px;
+    cursor: pointer;
+}

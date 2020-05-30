@@ -1,8 +1,22 @@
+
 <div class="r-section-wrap">
+    <div class="r-section-left-wrap">
+        <ng-content select="r-section-left"></ng-content>
+    </div>
+    <div class="r-section-right-wrap">
+        <div class="r-section-content">
+            <ng-content select="r-section-content"></ng-content>
+        </div>
+        <div class="r-section-bottom">
+            <ng-content select="r-section-bottom"></ng-content>
+        </div>
+    </div>
+</div>
+<!-- <div class="r-section-right-wrap">
     <div class="r-section-content">
         <ng-content select="r-section-content"></ng-content>
     </div>
     <div class="r-section-bottom">
         <ng-content select="r-section-bottom"></ng-content>
     </div>
-</div>
+</div> -->

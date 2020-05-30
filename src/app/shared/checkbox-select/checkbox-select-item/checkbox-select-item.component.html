@@ -1,0 +1,11 @@
+<div class="r-checkbox-select-item" (click)="onClick()">
+    <div class="r-checkbox-select-item__checkbox">
+        <div class="r-checkbox" [ngClass]="{ 'selected': selected$ | async }">
+        </div>
+    </div>
+    <div class="r-checkbox-select-item__label"
+        [ngClass]="{ 'selected': selected$ | async }"
+        >
+        <ng-content></ng-content>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="r-section-header" [ngClass]="{ 'align-center': alignCenter }">
-    <div class="r-section-header__back-btn">
+    <div *ngIf="hasBack" class="r-section-header__back-btn">
         <r-back-btn (click)="onBackClick()"></r-back-btn>
     </div>
     <div class="r-section-header__title">

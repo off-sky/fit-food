@@ -1,13 +1,34 @@
 
 <r-section>
     <r-section-content>
-        <r-section-header>
+        <r-section-header [hasBack]="false" [alignCenter]="true">
             Shopping List
         </r-section-header>
-        <r-section-content>
-            <div *ngFor="let item of list$ | async" class="r-shopping-list-item__wrap">
-                <r-shopping-list-item [item]="item"></r-shopping-list-item>
+        <r-section-body>
+            <div class="r-shopping-root">
+                <div *ngIf="!(empty$ | async)" class="r-shopping-root__add-wrap">
+                    <r-add-btn-round (click)="onAddItem();" style="position: fixed;"></r-add-btn-round>
+                </div>
+                <div *ngIf="empty$ | async;" class="r-shopping-root__empty-list">
+                    <div>
+                        No items in the list. <span (click)="$event.stopPropagation(); onAddItem()">Go add one!</span>
+                    </div>
+                </div>
+                <div *ngFor="let item of list$ | async" class="r-shopping-list-item__wrap">
+                    <r-shopping-list-item
+                        [item]="item" [editedId]="editedId$ | async"
+                        (toggledCompleted)="onToggleCompleted($event)"
+                        (changed)="onChangeItem($event)"
+                        (startedEdit)="onStartEdit($event)"
+                        (closedEdit)="onCloseEdit()"
+                        (removed)="onRemove($event)"
+                        >
+                    </r-shopping-list-item>
+                </div>
             </div>
-        </r-section-content>
+        </r-section-body>
     </r-section-content>
+    <r-section-bottom>
+        <r-actions [actions]="actions$ | async"></r-actions>
+    </r-section-bottom>
 </r-section>

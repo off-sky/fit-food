@@ -17,3 +17,21 @@
         }
     }
 }
+
+.r-count-label {
+    min-width: 11px;
+    padding: 0 3px;
+    height: 21px;
+    font-size: 13px;
+    background-color: #FB8A05;
+    color: white;
+    position: relative;
+    right: -3px;
+    top: -8px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}

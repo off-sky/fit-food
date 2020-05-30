@@ -5,22 +5,35 @@ import { HomeComponent } from './containers/home/home.component';
 import { calendarRoutes } from '../calendar/calendar.routes';
 import { dishesRoutes } from '../dishes/dishes.routes';
 import { shoppingRoutes } from '../shopping/shopping.routes';
+import { AccountComponent } from './containers/account/account.component';
+import { ProfileSettingsComponent } from '../profile/profile-settings/profile-settings.component';
 
 
 const homeRoutes: Route[] = [
   {
     path: '',
     pathMatch: 'prefix',
-    component: HomeComponent,
+    component: AccountComponent,
     children: [
       {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: '/dishes'
+        path: 'settings',
+        component: ProfileSettingsComponent
       },
-      ...calendarRoutes,
-      ...dishesRoutes,
-      ...shoppingRoutes,
+      {
+        path: '',
+        pathMatch: 'prefix',
+        component: HomeComponent,
+        children: [
+          {
+            path: '',
+            pathMatch: 'full',
+            redirectTo: '/dishes'
+          },
+          ...calendarRoutes,
+          ...dishesRoutes,
+          ...shoppingRoutes,
+        ]
+      }
     ]
   }
 ]

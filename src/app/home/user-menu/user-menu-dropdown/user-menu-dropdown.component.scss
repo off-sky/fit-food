@@ -1,0 +1,19 @@
+@import '../../../global-styles/index';
+
+.r-user-menu-dropdown {
+    width: 200px;
+
+    &__item {
+        height: 50px;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        cursor: pointer;
+        color: $grey-darkest;
+        &:hover {
+            background-color: $grey-light;
+        }
+    }
+}

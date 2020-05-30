@@ -10,6 +10,9 @@
     &__action {
         flex: 1;
         position: relative;
+        &:not(:first-child) {
+            border-left: 1px solid $grey;
+        }
     }
 }
 

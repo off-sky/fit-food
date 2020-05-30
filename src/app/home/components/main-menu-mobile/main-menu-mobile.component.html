@@ -1,7 +1,25 @@
 <div class="r-main-menu-mobile">
-    <div class="r-main-menu-mobile__swipe-bar">
+    <div *ngIf="false" class="r-main-menu-mobile__swipe-bar">
     </div>
     <div class="r-main-menu-mobile__menu">
-
+        <div class="r-main-menu-desktop">
+            <div class="r-main-menu-desktop__left">
+              <div class="r-main-menu-desktop__logo">
+                <div class="r-logo" routerLink="/dishes">
+                  <img
+                    src="/assets/logo.svg"
+                    alt="Fit Food Logo"
+                    width="75px"
+                    height="auto"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="r-main-menu-desktop__right">
+              <div class="r-main-menu-desktop__user-menu">
+                <r-user-menu></r-user-menu>
+              </div>
+            </div>
+          </div>
     </div>
 </div>

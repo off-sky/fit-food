@@ -8,7 +8,15 @@
     left: 0;
     right: 0;
     display: flex;
+}
+
+.r-section-right-wrap {
+    display: flex;
     flex-direction: column;
+}
+
+.r-section-left-wrap {
+
 }
 
 .r-section-content {

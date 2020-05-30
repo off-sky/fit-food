@@ -13,4 +13,8 @@
     width: 100%;
     height: 100%;
     position: relative;
+
+    &.mobile {
+        height: calc(100% - 65px);
+    }
 }

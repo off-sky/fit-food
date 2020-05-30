@@ -1,0 +1,30 @@
+<div class="r-user-menu__wrap">
+    <div class="r-user-menu" (click)="$event.stopPropagation(); open()">
+        <div class="r-user-menu__user-photo">
+          <img
+            src="/assets/profile.jpeg"
+            alt="User profile photo"
+            class="r-user-photo"
+          />
+        </div>
+        <div class="r-user-menu__arrow">
+          <div>
+            <svg
+              width="8"
+              height="4"
+              viewBox="0 0 8 4"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 0L4.00002 4.00002L8 0H0Z" fill="#FFFEFE" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="r-user-menu-dropdown" *ngIf="isOpen$ | async"
+            rClickOutside (rClickOutside)="close()"
+        >
+        <r-user-menu-dropdown></r-user-menu-dropdown>
+      </div>
+</div>
+

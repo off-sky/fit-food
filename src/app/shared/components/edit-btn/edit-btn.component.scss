@@ -1,0 +1,10 @@
+@import '../../../global-styles/index.scss';
+
+.svg-element {
+    cursor: pointer;
+    &:hover {
+        path {
+            fill: $grey-dark;
+        }
+    }
+}

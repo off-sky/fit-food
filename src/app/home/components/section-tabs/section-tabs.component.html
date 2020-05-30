@@ -6,6 +6,6 @@
         Календар
     </div>
     <div class="r-section-tabs__item last" routerLink="/shopping" routerLinkActive="active">
-        Купити
+        Купити <span *ngIf="hasUncompletedShoppings$ | async" class="r-count-label">{{ notCompletedShoppingCount$ | async }}</span>
     </div>
 </div>

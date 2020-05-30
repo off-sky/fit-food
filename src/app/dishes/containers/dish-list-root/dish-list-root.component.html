@@ -1,5 +1,14 @@
 
 <r-section>
+    <r-section-left *ngIf="!(isMobile$ | async)">
+        <r-side-bar>
+            <r-checkbox-select>
+                <r-checkbox-select-item *ngFor="let filter of filters" [value]="filter">
+                    {{ filter }}
+                </r-checkbox-select-item>
+            </r-checkbox-select>
+        </r-side-bar>
+    </r-section-left>
     <r-section-content>
         <div class="r-dish-list-root__search-input-wrap">
             <div class="r-dish-list-root__search-input">
@@ -12,7 +21,7 @@
             </div>
         </div>
     </r-section-content>
-    <r-section-bottom>
+    <r-section-bottom *ngIf="isMobile$ | async">
         <r-recent-list (opened)="onOpenedFromRecentList()"></r-recent-list>
         <r-filter-bar>
             <r-filter-item *ngFor="let filter of filters"

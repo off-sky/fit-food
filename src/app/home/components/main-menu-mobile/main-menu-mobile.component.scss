@@ -6,3 +6,49 @@
         background-color: $accent;
     }
 }
+
+@import '../../../global-styles/index';
+
+.r-main-menu-desktop {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: $accent;
+    padding: 4px $padding-side-mobile;
+    box-sizing: border-box;
+    &__left {
+        display: flex;
+        align-items: center;
+    }
+    &__right {
+        display: flex;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        margin-right: 35px;
+        cursor: pointer;
+    }
+
+    &__section-menu {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        &__item {
+            color: white;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+            &.active {
+                color: $grey-light;
+            }
+        }
+    }
+}

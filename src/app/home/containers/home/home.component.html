@@ -1,7 +1,4 @@
-<div class="r-home-wrap">
-    <r-main-menu [isMobile]="isMobile$ | async"></r-main-menu>
-    <r-section-tabs></r-section-tabs>
-    <div class="r-home__section-wrap">
-        <router-outlet></router-outlet>
-    </div>
+<r-section-tabs *ngIf="isMobile$ | async"></r-section-tabs>
+<div class="r-home__section-wrap" [ngClass]="{ 'mobile': isMobile$ | async}">
+    <router-outlet></router-outlet>
 </div>
